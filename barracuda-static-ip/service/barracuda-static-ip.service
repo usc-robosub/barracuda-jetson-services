@@ -6,7 +6,7 @@ After=network.target
 Type=oneshot
 EnvironmentFile=/etc/barracuda-static-ip.conf
 ExecStart=/sbin/ip addr add $IP_ADDRESS dev $INTERFACE
-ExecStart=/bin/bash -c 'echo $DNS_SERVERS | sed "s/^/nameserver /g" | tr " " "\n" > /etc/resolv.conf'
+ExecStart=/bin/bash -c 'resolvectl dns $INTERFACE $DNS_SERVERS'
 
 [Install]
 WantedBy=multi-user.target
