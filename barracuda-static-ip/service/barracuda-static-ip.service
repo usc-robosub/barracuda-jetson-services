@@ -7,7 +7,7 @@ Type=oneshot
 EnvironmentFile=/etc/barracuda-static-ip.conf
 ExecStart=/sbin/ip addr add $IP_ADDRESS dev $INTERFACE
 ExecStart=/bin/bash -c 'resolvectl dns $INTERFACE $DNS_SERVERS'
-ExecStart-/bin/bash -c 'resolvectl domain $INTERFACE $DOMAIN'
+ExecStart=/bin/bash -c 'resolvectl domain $INTERFACE $DOMAIN'
 
 [Install]
 WantedBy=multi-user.target
