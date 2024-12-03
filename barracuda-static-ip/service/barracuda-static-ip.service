@@ -8,6 +8,7 @@ EnvironmentFile=/etc/barracuda-static-ip.conf
 ExecStart=/sbin/ip addr add $IP_ADDRESS dev $INTERFACE
 ExecStart=/bin/bash -c 'resolvectl dns $INTERFACE $DNS_SERVERS'
 ExecStart=/bin/bash -c 'resolvectl domain $INTERFACE $DOMAIN'
+ExecStart=/sbin/ip route add default via $GATEWAY dev $INTERFACE
 
 [Install]
 WantedBy=multi-user.target
